@@ -1,0 +1,4 @@
+name: Deploy via IssueOps
+on:
+  issue_comment:
+    types: [created]
