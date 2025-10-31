@@ -10,21 +10,21 @@ body:
     required: true
     attributes:
       label: "Repository name"
-      description: "Name of the new repo (use lowercase, hyphens)"
-      placeholder: "example-repo"
+      description: "Name of the new repo"
+      required: true
   - type: dropdown
     id: visibility
     required: true
     attributes:
       label: "Visibility"
+      description: "Choose public or private"
       options:
-        - label: "Public"
-          value: public
-        - label: "Private"
-          value: private
+        - public
+        - private
+      required: true
   - type: input
     id: repo-description
     attributes:
       label: "Description"
       description: "Short description for the repository"
-      placeholder: "Short project summary"
+      required: false
