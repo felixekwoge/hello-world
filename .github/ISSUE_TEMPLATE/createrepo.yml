@@ -7,13 +7,13 @@ labels:
 body:
   - type: input
     id: repo-name
-    required: true
+#    required: true
     attributes:
       label: "Repository name"
       description: "Name of the new repo"
   - type: dropdown
     id: visibility
-    required: true
+#    required: true
     attributes:
       label: "Visibility"
       description: "Choose public or private"
