@@ -2,8 +2,8 @@ name: "Request new repository"
 description: "Request creation of a GitHub repository"
 title: "[n Create Repo]"
 labels:
-  - "administration"
-  - "createrepo"
+  - administration
+  - createrepo
 body:
   - type: input
     id: repo-name
@@ -16,8 +16,8 @@ body:
     attributes:
       label: "Visibility"
       options:
-        - "public"
-        - "private"
+        - public
+        - private
       required: true
   - type: input
     id: repo-description
