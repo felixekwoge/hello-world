@@ -1,6 +1,6 @@
 name: "Request new repository"
 description: "Request creation of a GitHub repository"
-title: "[🚀 Create Repo]"
+title: "[Create Repo]"
 labels: ["administration", "createrepo"]
 body:
 - type: input
