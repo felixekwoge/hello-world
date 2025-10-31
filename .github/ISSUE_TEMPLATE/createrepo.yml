@@ -18,8 +18,10 @@ body:
       label: "Visibility"
       description: "Choose public or private"
       options:
-        - public
-        - private
+        - label: "Public"
+          value: public
+        - label: "Private"
+          value: private
       required: true
   - type: input
     id: repo-description
