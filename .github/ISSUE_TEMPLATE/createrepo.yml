@@ -15,7 +15,6 @@ body:
       min_length: 1
   - type: dropdown
     id: visibility
-    default: "public"
     attributes:
       label: "Visibility"
       description: "Choose public or private"
