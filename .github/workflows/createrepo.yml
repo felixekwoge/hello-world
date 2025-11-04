@@ -18,7 +18,7 @@ jobs:
             // try to extract "Repository name" from the issue form body
             const match = body.match(/Repository name:\s*(.+)/i);
             if (!match || !match[1].trim()) {
-              core.setFailed('Missing required repository name field');
+              throw new Error('Missing required repository name field');
             }
 
   approve-request:
@@ -40,17 +40,19 @@ jobs:
             }
 
             if (!repoName) {
-              core.setFailed('Repository name not found; cannot create repo');
-            } else {
-              await github.repos.createInOrg({
-                org: context.repo.owner,
-                name: repoName,
-                private: true
-              });
-              await github.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: `Repository '${repoName}' has been created successfully.`
-              });
+              throw new Error('Repository name not found; cannot create repo');
             }
+
+            // create repository in org (requires token with permissions)
+            await github.rest.repos.createInOrg({
+              org: context.repo.owner,
+              name: repoName,
+              private: true
+            });
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `Repository '${repoName}' has been created successfully.`
+            });
